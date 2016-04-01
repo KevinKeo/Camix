@@ -15,7 +15,6 @@
 	  <artifactId>junit</artifactId>
 	  <version>4.11</version>
     </dependency>
-    
   </dependencies>
   
   <build>
@@ -30,6 +29,11 @@
       </resource>
     </resources>
     <plugins>
+		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.6</version>
+		</plugin>
 		<plugin>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.3</version>
@@ -56,6 +60,24 @@
   </build>
 	<reporting>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.6</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>1.5</targetJdk>
+					<excludes>
+						<exclude>**/*Bean.java</exclude>
+						<exclude>**/generated/*.java</exclude>
+					</excludes>
+					<excludeRoots>
+						<excludeRoot>target/generated-sources/stubs</excludeRoot>
+					</excludeRoots>
+				</configuration>
+			</plugin>
 			<plugin>
 	        	<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
