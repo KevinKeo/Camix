@@ -1,0 +1,6 @@
+camix\Camix.class
+camix\ProtocoleChat.class
+camix\ServiceChat.class
+camix\ConnexionClient.class
+camix\ClientChat.class
+camix\CanalChat.class
